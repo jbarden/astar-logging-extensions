@@ -16,7 +16,7 @@ public static class LoggingExtensions
     public static WebApplicationBuilder UseSerilogLogging(this WebApplicationBuilder builder)
     {                
         var services = builder.Services;
-        _ = builder.Configuration.AddJsonFile(path: "astar-logging-settings.json", optional: true, reloadOnChange: true);
+        _ = builder.Configuration.AddJsonFile(path: "astar-logging-settings.json", optional: false, reloadOnChange: true);
 
         _ = builder.Host.UseSerilog((context, loggerConfig) => loggerConfig
             .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {Message:lj}{NewLine}{Exception}")
