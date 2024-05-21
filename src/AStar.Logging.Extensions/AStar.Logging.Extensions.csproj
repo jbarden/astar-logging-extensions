@@ -24,7 +24,7 @@
 		<PackageProjectUrl>https://github.com/jbarden/astar-logging-extensions</PackageProjectUrl>
 		<Description>This package contains extension methods designed to add Serilog and Application Insights to the project. The logging is opinionated but the configuration can be overridden.
 		</Description>
-		<Version>0.2.1</Version>
+		<Version>0.3.0</Version>
 		<contentFiles>
 			<files include="astar-logging-settings.json" buildAction="content" flatten="true" copyToOutput="true" />
 		</contentFiles>
