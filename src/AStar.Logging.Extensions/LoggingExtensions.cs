@@ -1,3 +1,4 @@
+using AStar.Logging.Extensions.Models;
 using AStar.Utilities;
 using Microsoft.ApplicationInsights.Extensibility;
 using Serilog;
@@ -13,15 +14,19 @@ public static class LoggingExtensions
     ///
     /// </summary>
     /// <param name="services"></param>
+    /// <param name="configuration"></param>
     /// <returns></returns>
-    public static IServiceCollection AddSerilogLogging(this IServiceCollection services)
+    public static IServiceCollection AddSerilogLogging(this IServiceCollection services, ConfigurationManager configuration)
     {
         _ = services.AddApplicationInsightsTelemetry();
         var serviceProvider = services.BuildServiceProvider();
+        var seqServerUrl = configuration.Get<SerilogConfig>()!.Serilog.WriteTo[0].Args.ServerUrl;
         var logger = new LoggerConfiguration()
             .WriteTo.ApplicationInsights(serviceProvider.GetRequiredService<TelemetryConfiguration>(), TelemetryConverter.Traces)
+            .WriteTo.Console()
+            .WriteTo.Seq(seqServerUrl)
             .CreateLogger();
-        logger.Information("Will this log?");
+        logger.Debug("Serilog has been configured.");
         Log.Logger = logger;
 
         return services;
@@ -66,7 +71,7 @@ public static class LoggingExtensions
     {
         builder = builder.UseSerilogLogging(externalSettingsFile);
 
-        _ = builder.Services.AddSerilogLogging();
+        _ = builder.Services.AddSerilogLogging(builder.Configuration);
 
         return builder;
     }
