@@ -25,7 +25,7 @@
 		<Description>This package contains extension methods designed to add Serilog and Application Insights to the project. The logging is opinionated but the configuration can be overridden.
 		</Description>
 		<PackageReleaseNotes>Resolve bug in configuring the bootstrapper.</PackageReleaseNotes>
-		<Version>0.3.1</Version>
+		<Version>0.4.0</Version>
 		<contentFiles>
 			<files include="astar-logging-settings.json" buildAction="content" flatten="true" copyToOutput="true" />
 		</contentFiles>
