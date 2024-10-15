@@ -24,8 +24,8 @@
 		<PackageProjectUrl>https://github.com/jbarden/astar-logging-extensions</PackageProjectUrl>
 		<Description>This package contains extension methods designed to add Serilog and Application Insights to the project. The logging is opinionated but the configuration can be overridden.
 		</Description>
-		<PackageReleaseNotes>Resolve bug in configuring the bootstrapper.</PackageReleaseNotes>
-		<Version>0.4.0</Version>
+		<PackageReleaseNotes>This version only updates the GitHub actions.</PackageReleaseNotes>
+		<Version>0.4.1</Version>
 		<contentFiles>
 			<files include="astar-logging-settings.json" buildAction="content" flatten="true" copyToOutput="true" />
 		</contentFiles>
@@ -37,11 +37,11 @@
   <ItemGroup>
 		<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
 		<PackageReference Include="AStar.Utilities" Version="1.3.0" />
-		<PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
 		<PackageReference Include="Serilog.Enrichers.Span" Version="3.1.0" />
-		<PackageReference Include="Serilog.Enrichers.Environment" Version="2.3.0" />
-		<PackageReference Include="Serilog.Expressions" Version="4.0.0" />
-		<PackageReference Include="Serilog.Sinks.Seq" Version="7.0.1" />
+		<PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
+		<PackageReference Include="Serilog.Expressions" Version="5.0.0" />
+		<PackageReference Include="Serilog.Sinks.Seq" Version="8.0.0" />
 		<PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
 		<PackageReference Include="Serilog.Sinks.ApplicationInsights" Version="4.0.0" />
   </ItemGroup>
